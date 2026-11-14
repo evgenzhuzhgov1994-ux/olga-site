@@ -1396,3 +1396,10 @@ main .approach .method-title-first { white-space: normal; }
 #consultation-form button[type=submit] { position: static; width: 100%; height: auto; padding: 16px 22px; min-height: 54px; font-size: 14px; background: #78618e; border: 0; }
 #consultation-status { font-size: 12px; margin-top: 16px; }
 @media(max-width:760px) { .consultation-panel { padding: 70px 22px 24px; } #consultation-dialog h2 { font-size: 31px; } }
+
+body dialog .lightbox-close, body dialog .education-close, body dialog .course-dialog-close, body dialog .join-dialog-close, body dialog .article-gifts-close, body dialog .consultation-close { display: none !important; }
+body dialog .modal-close-bar { position: sticky; top: 0; height: 0; width: 100%; display: flex; justify-content: flex-end; z-index: 100; pointer-events: none; }
+body dialog .modal-close-right { position: relative; inset: auto; float: none; flex: 0 0 42px; width: 42px; height: 42px; min-height: 42px; margin: 12px 12px 0 0; padding: 0; border: 1px solid #9680ad; border-radius: 50%; background: #f7eee4; color: #172d22; pointer-events: auto; cursor: pointer; box-shadow: 0 2px 8px #172d2220; transform: none; }
+.modal-close-right::before,.modal-close-right::after { content: ''; position: absolute; top: 50%; left: 50%; width: 18px; height: 2px; background: currentColor; transform: translate(-50%,-50%) rotate(45deg); }
+.modal-close-right::after { transform: translate(-50%,-50%) rotate(-45deg); }
+#education-dialog .education-dialog-panel,.course-dialog .course-dialog-panel { padding-top: 72px; }
