@@ -249,6 +249,11 @@ videoDialog.querySelector('.modal-close-right').addEventListener('click',()=>vid
 videoDialog.addEventListener('click',event=>{if(event.target===videoDialog){const r=videoDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)videoDialog.close();}});
 videoTrack.addEventListener('scroll',()=>{const cards=[...videoTrack.children];const nearest=cards.reduce((best,card,i)=>Math.abs(card.getBoundingClientRect().left-videoTrack.getBoundingClientRect().left)<Math.abs(cards[best].getBoundingClientRect().left-videoTrack.getBoundingClientRect().left)?i:best,0);document.querySelector('#video-reviews-position').textContent=String(nearest+1).padStart(2,'0')+' / '+String(videoReviews.length).padStart(2,'0');},{passive:true});
 
-document.querySelector('.back-to-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
+const floatingMenu=document.querySelector('.floating-menu');
+const syncFloatingMenu=()=>{const open=menu.getAttribute('aria-expanded')==='true';floatingMenu.setAttribute('aria-expanded',String(open));floatingMenu.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');floatingMenu.querySelector('span').textContent=open?'×':'☰';if(!open)navigation.classList.remove('floating-open');};
+floatingMenu.addEventListener('click',()=>{menu.click();navigation.classList.toggle('floating-open',menu.getAttribute('aria-expanded')==='true');syncFloatingMenu();});
+new MutationObserver(syncFloatingMenu).observe(menu,{attributes:true,attributeFilter:['aria-expanded']});
+const updateFloatingMenu=()=>{floatingMenu.hidden=document.querySelector('#process').getBoundingClientRect().top>window.innerHeight*.8;};
+window.addEventListener('scroll',updateFloatingMenu,{passive:true});window.addEventListener('resize',updateFloatingMenu);updateFloatingMenu();
 
 document.querySelector('#video-reviews-position').textContent='01 / '+String(videoReviews.length).padStart(2,'0');
