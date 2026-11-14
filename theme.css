@@ -1461,3 +1461,9 @@ body dialog[open] { display: block; }
 .back-to-top:hover { background: #e8dff0; }
 @media(max-width:760px) { .hero .hero-offer-note { grid-template-columns: 25px minmax(0,1fr); column-gap: 11px; } .hero-offer-emoji { font-size: 21px; } .back-to-top { width: 56px; height: 56px; right: 12px; bottom: max(12px,env(safe-area-inset-bottom)); } }
 @media(prefers-reduced-motion:reduce) { .reviews-join-action .button,.reviews-join-action .button::before { animation: none; } }
+
+.button, .header-cta, .course-modal-trigger, .education-trigger, .social-icon, .personal-contact a, .questionnaire-button, .back-to-top { position: relative; isolation: isolate; overflow: hidden; }
+.button::after, .header-cta::after, .course-modal-trigger::after, .education-trigger::after, .social-icon::after, .personal-contact a::after, .back-to-top::after { content: ''; position: absolute; top: 0; bottom: 0; left: -65%; width: 45%; background: linear-gradient(100deg,transparent,#ffffff70,transparent); transform: skewX(-20deg); pointer-events: none; animation: bonus-button-shine 5s ease-in-out infinite; }
+.back-to-top { position: fixed; }
+.reviews-join-action .button::before { display: none; }
+@media(prefers-reduced-motion:reduce) { .button::after,.header-cta::after,.course-modal-trigger::after,.education-trigger::after,.social-icon::after,.personal-contact a::after,.back-to-top::after { animation: none; display: none; } }
