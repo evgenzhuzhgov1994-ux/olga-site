@@ -166,11 +166,7 @@ educationDialog.querySelector('.education-close').addEventListener('click',()=>e
 educationDialog.addEventListener('click',e=>{if(e.target===educationDialog)educationDialog.close();});
 educationDialog.addEventListener('close',()=>document.body.classList.remove('modal-open'));
 
-document.querySelector('.contact-max-pending').addEventListener('click',()=>{
-  const status=document.querySelector('.contact-max-status');
-  status.hidden=false;
-  status.textContent='Ссылка на личный Макс скоро появится. Сейчас можно написать в Telegram или ВКонтакте.';
-});
+
 
 const joinDialog=document.querySelector('#join-dialog');
 document.querySelectorAll('[data-open-join]').forEach(button=>button.addEventListener('click',()=>joinDialog.showModal()));
@@ -179,7 +175,7 @@ joinDialog.addEventListener('click',event=>{if(event.target===joinDialog){const 
 document.querySelectorAll('.choose-format').forEach(button=>button.addEventListener('click',event=>{event.preventDefault();joinDialog.showModal();}));
 
 document.querySelector('.mobile-reserve').addEventListener('click',()=>{navigation.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Открыть меню');});
-document.querySelector('.mobile-max-pending').addEventListener('click',()=>{const status=document.querySelector('.mobile-menu-status');status.hidden=false;status.textContent='Личная ссылка на Макс скоро появится. Пока можно написать в Telegram или ВКонтакте.';});
+
 
 const mobileComparison=document.createElement('div');
 mobileComparison.className='mobile-comparison';
