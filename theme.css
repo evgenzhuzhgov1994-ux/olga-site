@@ -1448,3 +1448,16 @@ body dialog[open] { display: block; }
 
 .hero-offer-note { max-width: 530px; margin: 16px 0 0; color: #f7eee4; font: 400 13px/1.6 var(--sans); }
 @media(max-width:760px) { .hero .hero-offer-note { grid-row: 6; margin: 16px 0 0; font-size: 12px; } }
+
+.reviews-join-action .button { position: relative; isolation: isolate; overflow: hidden; background: #f7eee4; border-color: #f7eee4; color: #172d22; animation: bonus-button-glow 4s ease-in-out infinite; }
+.reviews-join-action .button::before { content: ''; position: absolute; inset: 0 auto 0 -65%; width: 45%; background: linear-gradient(100deg,transparent,#ffffffcc,transparent); transform: skewX(-20deg); pointer-events: none; animation: bonus-button-shine 4s ease-in-out infinite; z-index: -1; }
+@keyframes bonus-button-shine { 0%,15% { left: -65%; } 65%,100% { left: 125%; } }
+@keyframes bonus-button-glow { 0%,100% { box-shadow: 0 0 0 #f7eee400; } 50% { box-shadow: 0 0 22px #f7eee455; } }
+.hero .hero-offer-note { display: grid; grid-template-columns: 32px minmax(0,1fr); column-gap: 16px; align-items: start; }
+.hero-offer-emoji { font-size: 23px; line-height: 1.2; }
+.back-to-top { position: fixed; right: 20px; bottom: 20px; z-index: 40; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; width: 64px; height: 64px; padding: 6px; border: 1px solid #9680ad; border-radius: 50%; background: #f7eee4ee; color: #172d22; box-shadow: 0 4px 18px #172d2226; cursor: pointer; backdrop-filter: blur(6px); }
+.back-to-top > span:first-child { font: 400 28px/1 var(--sans); }
+.back-to-top > span:last-child { font: 500 10px/1.2 var(--sans); }
+.back-to-top:hover { background: #e8dff0; }
+@media(max-width:760px) { .hero .hero-offer-note { grid-template-columns: 25px minmax(0,1fr); column-gap: 11px; } .hero-offer-emoji { font-size: 21px; } .back-to-top { width: 56px; height: 56px; right: 12px; bottom: max(12px,env(safe-area-inset-bottom)); } }
+@media(prefers-reduced-motion:reduce) { .reviews-join-action .button,.reviews-join-action .button::before { animation: none; } }

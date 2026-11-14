@@ -242,3 +242,5 @@ videoTrack.querySelectorAll('[data-video-review]').forEach(button=>button.addEve
 videoDialog.querySelector('.modal-close-right').addEventListener('click',()=>videoDialog.close());videoDialog.addEventListener('close',()=>videoDialog.querySelector('.video-player').replaceChildren());
 videoDialog.addEventListener('click',event=>{if(event.target===videoDialog){const r=videoDialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)videoDialog.close();}});
 videoTrack.addEventListener('scroll',()=>{const cards=[...videoTrack.children];const nearest=cards.reduce((best,card,i)=>Math.abs(card.getBoundingClientRect().left-videoTrack.getBoundingClientRect().left)<Math.abs(cards[best].getBoundingClientRect().left-videoTrack.getBoundingClientRect().left)?i:best,0);document.querySelector('#video-reviews-position').textContent=String(nearest+1).padStart(2,'0')+' / 07';},{passive:true});
+
+document.querySelector('.back-to-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'}));
