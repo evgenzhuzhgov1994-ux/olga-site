@@ -1487,3 +1487,37 @@ body > .back-to-top { position: fixed; inset: auto 20px max(20px, env(safe-area-
 .arrows button svg {display:block;width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
 .video-reviews-track {touch-action:pan-x pan-y; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;}
 @media(max-width:760px) {.video-reviews-heading h3 {font-size:28px;min-width:0;} .video-reviews-heading .arrows {gap:8px;} .video-reviews-heading .arrows button {width:38px;height:38px;} .arrows button svg {width:22px;height:22px;} }
+
+#questionnaire-dialog:not([open]) { display: none; }
+#questionnaire-dialog { width: min(600px,calc(100% - 28px)); max-height: calc(100dvh - 32px); overflow-y: auto; border: 0; border-radius: 24px; background: #f7eee4; color: #172d22; padding: 0; }
+#questionnaire-dialog::backdrop { background: #172d22cc; backdrop-filter: blur(4px); }
+#questionnaire-dialog h2 { font: 600 36px/1.1 var(--serif); margin: 0 0 26px; }
+#questionnaire-dialog .article-gifts-close { position: absolute; inset: 16px 16px auto auto; display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%; background: #e5dce9; color: #172d22; font: 28px/1 var(--sans); }
+#questionnaire-form { display: flex; flex-direction: column; padding: 0; background: transparent; border: 0; }
+#questionnaire-form label { display: block; font-size: 14px; margin: 12px 0 7px; }
+#questionnaire-form input:not([type=checkbox]),#questionnaire-form select { width: 100%; min-width: 0; box-sizing: border-box; font-size: 14px; }
+#questionnaire-contact-field[hidden] { display: none; }
+#questionnaire-form .questionnaire-consent { display: flex; gap: 10px; align-items: flex-start; margin: 20px 0; font-size: 12px; line-height: 1.5; }
+#questionnaire-form .questionnaire-consent input { width: 18px; height: 18px; margin: 0; flex: 0 0 18px; accent-color: #78618e; }
+#questionnaire-form button[type=submit] { position: static; width: 100%; height: auto; min-height: 54px; padding: 16px 22px; font-size: 14px; background: #78618e; border: 0; }
+#questionnaire-form-status { margin: 16px 0 0; font-size: 12px; }
+@media(max-width:760px) { .article-gifts-list { grid-template-columns: 1fr; gap: 14px; } .article-gifts-list article { padding: 23px; } .article-gifts-list h3 { font-size: 25px; } .article-gifts .button { width: 100%; } .article-gifts-panel { padding: 70px 22px 24px; } #questionnaire-dialog h2 { font-size: 31px; } }
+#questionnaire-form .questionnaire-consent { align-items: center; }
+#questionnaire-form .questionnaire-consent input { display: inline-block; padding: 0; border-radius: 3px; vertical-align: middle; }
+#questionnaire-contact-field[hidden],#gift-choice[hidden] {display:none;}
+.gift-choice-label {font-size:14px;margin:12px 0 7px;}
+.gift-choice-dropdown {width:100%;min-width:0;box-sizing:border-box;position:relative;}
+.gift-choice-dropdown summary {display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fffdf9;border:1px solid #afbaa4;border-radius:5px;padding:16px;cursor:pointer;font:14px/1.5 var(--sans);overflow-wrap:anywhere;}
+.gift-choice-dropdown summary::after {content:'⌄';flex:none;}
+.gift-choice-options {display:grid;width:100%;box-sizing:border-box;border:1px solid #afbaa4;border-radius:5px;background:#fffdf9;overflow:hidden;}
+.gift-choice-options button {position:static;display:block;width:100%;height:auto;padding:13px 16px;border:0;border-bottom:1px solid #e5dce9;background:transparent;color:#172d22;text-align:left;white-space:normal;overflow-wrap:anywhere;font:14px/1.5 var(--sans);cursor:pointer;}
+.gift-choice-options button:hover,.gift-choice-options button:focus-visible {background:#e5dce9;}
+
+.navigation-close {display:none;}
+.header #navigation.open .navigation-close {display:flex;align-items:center;justify-content:center;position:absolute;top:12px;right:12px;width:36px;height:36px;padding:0;border:1px solid #b6a4c2;border-radius:50%;background:#f7eee4;color:#172d22;cursor:pointer;}
+.navigation-close svg {width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;}
+.header #navigation.floating-open {padding-top:58px;}
+@media(max-width:760px) {.header #navigation.open {padding-top:58px;} }
+
+.contact-buttons .social-icon-vk, .personal-contact a[href*="vk.me"] { background:#0765cf; color:#fff; border-color:#0765cf; }
+.personal-contact a[href*="max.ru"] { background:#6753cf; color:#fff; border-color:#6753cf; }

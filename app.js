@@ -154,11 +154,7 @@ document.querySelectorAll('.choose-format').forEach(a=>a.addEventListener('click
 document.querySelector('#join-form').addEventListener('submit',e=>{e.preventDefault();const msg=document.querySelector('#form-message');msg.hidden=false;msg.textContent='Это демонстрация формы. Данные не отправлены и не сохранены. Для связи сейчас можно написать Ольге в Telegram ниже.';});
 
 // Questionnaire destination will be connected once supplied.
-document.querySelector('.questionnaire-button').addEventListener('click',()=>{
-  const status=document.querySelector('#questionnaire-status');
-  status.hidden=false;
-  status.textContent='Анкета скоро появится. Ссылка будет добавлена перед стартом программы.';
-});
+document.querySelector('.questionnaire-button').addEventListener('click',()=>document.querySelector('#questionnaire-dialog').showModal());
 
 const educationDialog=document.querySelector('#education-dialog');
 document.querySelector('.education-trigger').addEventListener('click',()=>{educationDialog.showModal();document.body.classList.add('modal-open');});
@@ -253,3 +249,15 @@ const updateFloatingMenu=()=>{floatingMenu.hidden=document.querySelector('#proce
 window.addEventListener('scroll',updateFloatingMenu,{passive:true});window.addEventListener('resize',updateFloatingMenu);updateFloatingMenu();
 
 document.querySelector('#video-reviews-position').textContent='01 / '+String(videoReviews.length).padStart(2,'0');
+
+const questionnaireDialog=document.querySelector('#questionnaire-dialog');
+questionnaireDialog.addEventListener('click',e=>{if(e.target===questionnaireDialog){const r=questionnaireDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)questionnaireDialog.close();}});
+const questionnairePhone=document.querySelector('#questionnaire-phone');
+questionnairePhone.addEventListener('input',()=>{let d=questionnairePhone.value.replace(/\D/g,'');if(d.startsWith('7')||d.startsWith('8'))d=d.slice(1);d=d.slice(0,10);let v=d?'+7 ('+d.slice(0,3):'';if(d.length>=3)v+=') ';if(d.length>3)v+=d.slice(3,6);if(d.length>6)v+='-'+d.slice(6,8);if(d.length>8)v+='-'+d.slice(8,10);questionnairePhone.value=v;});
+document.querySelector('#questionnaire-destination').addEventListener('change',e=>{const field=document.querySelector('#questionnaire-contact-field'),input=document.querySelector('#questionnaire-contact');const options={max:['Ваш контакт в Макс','Телефон или ссылка на профиль','text'],telegram:['Ваш контакт в Телеграмм','@username или ссылка на профиль','text'],vk:['Ваш профиль ВКонтакте','Ссылка на профиль ВКонтакте','url'],email:['Ваша почта','name@example.ru','email']};const selected=options[e.target.value];field.hidden=!selected;input.required=Boolean(selected);input.value='';if(selected){document.querySelector('#questionnaire-contact-label').textContent=selected[0];input.placeholder=selected[1];input.type=selected[2];}});
+document.querySelector('#questionnaire-form').addEventListener('submit',e=>{e.preventDefault();const s=document.querySelector('#questionnaire-form-status');s.hidden=false;s.textContent='Форма пока работает в демонстрационном режиме. Для получения анкеты напишите Ольге лично.';});
+const syncGiftChoice=()=>{const select=document.querySelector('#gift-choice');document.querySelector('#gift-choice-current').textContent=select.selectedOptions[0].textContent;document.querySelector('.gift-choice-dropdown').open=false;};
+document.querySelectorAll('[data-gift-option]').forEach(b=>b.addEventListener('click',()=>{document.querySelector('#gift-choice').value=b.dataset.giftOption;syncGiftChoice();}));
+document.querySelectorAll('.article-gift-open').forEach(b=>b.addEventListener('click',syncGiftChoice));
+
+document.querySelector('.navigation-close').addEventListener('click',()=>{if(menu.getAttribute('aria-expanded')==='true')menu.click();});
