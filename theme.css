@@ -1405,3 +1405,9 @@ body dialog .modal-close-right { position: relative; inset: auto; float: none; f
 #education-dialog .education-dialog-panel,.course-dialog .course-dialog-panel { padding-top: 72px; }
 
 body dialog[open] { display: block; }
+
+.contact-section .contact-icon-group h3 { font-family: var(--sans); font-size: 15px; font-weight: 400; line-height: 1.7; letter-spacing: normal; }
+.contact-section .contact-layout > div > p { font-size: 15px; line-height: 1.7; }
+.contact-section .contact-buttons .social-icon { width: 46px; height: 46px; padding: 12px; }
+.contact-section .social-icon svg { width: 22px; height: 22px; }
+.footer-bottom { align-items: center; }
