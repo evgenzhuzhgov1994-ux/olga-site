@@ -1403,3 +1403,5 @@ body dialog .modal-close-right { position: relative; inset: auto; float: none; f
 .modal-close-right::before,.modal-close-right::after { content: ''; position: absolute; top: 50%; left: 50%; width: 18px; height: 2px; background: currentColor; transform: translate(-50%,-50%) rotate(45deg); }
 .modal-close-right::after { transform: translate(-50%,-50%) rotate(-45deg); }
 #education-dialog .education-dialog-panel,.course-dialog .course-dialog-panel { padding-top: 72px; }
+
+body dialog[open] { display: block; }
