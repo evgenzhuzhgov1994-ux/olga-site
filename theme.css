@@ -1439,3 +1439,5 @@ body dialog[open] { display: block; }
 .video-dialog-description { font-size: 14px; line-height: 1.65; margin-top: 20px; }
 .video-original-link { font-size: 13px; text-decoration: underline; }
 @media(max-width:760px) { .video-review-card { flex-basis: 88%; } .video-reviews-track { gap: 15px; } .video-reviews-bottom { font-size: 11px; gap: 10px; } .video-reviews-bottom > span:first-child { white-space: nowrap; } .video-review-panel { padding-inline: 16px; } }
+
+.results-reviews-link { margin-top: 22px; background: #78618e; border-color: #78618e; color: #fff8ef; }
