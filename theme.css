@@ -1521,3 +1521,5 @@ body > .back-to-top { position: fixed; inset: auto 20px max(20px, env(safe-area-
 
 .contact-buttons .social-icon-vk, .personal-contact a[href*="vk.me"] { background:#0765cf; color:#fff; border-color:#0765cf; }
 .personal-contact a[href*="max.ru"] { background:#6753cf; color:#fff; border-color:#6753cf; }
+
+@media(max-width:760px) { .article-gifts-list article h3 { font-size:14px; line-height:1.5; } }
