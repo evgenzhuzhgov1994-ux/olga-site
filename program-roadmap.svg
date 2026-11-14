@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 350" fill="none">
+<rect width="440" height="350" rx="28" fill="#f7eee4"/>
+<circle cx="386" cy="35" r="100" fill="#e5dce9"/>
+<circle cx="40" cy="325" r="100" fill="#e1e5d6"/>
+<path d="M77 264h234c62 0 62-75 0-75H128c-62 0-62-75 0-75h220" stroke="#d3cade" stroke-width="20" stroke-linecap="round"/>
+<path d="M77 264h234c62 0 62-75 0-75H128c-62 0-62-75 0-75h220" stroke="#8b769a" stroke-width="2" stroke-dasharray="3 7"/>
+<g stroke="#fffaf3" stroke-width="4">
+<circle cx="77" cy="264" r="23" fill="#657b51"/>
+<circle cx="224" cy="264" r="23" fill="#78618e"/>
+<circle cx="347" cy="226" r="23" fill="#657b51"/>
+<circle cx="224" cy="189" r="23" fill="#78618e"/>
+<circle cx="92" cy="151" r="23" fill="#657b51"/>
+<circle cx="240" cy="114" r="23" fill="#78618e"/>
+</g>
+<g font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#fffaf3" text-anchor="middle">
+<text x="77" y="271">1</text><text x="224" y="271">2</text><text x="347" y="233">3</text><text x="224" y="196">4</text><text x="92" y="158">5</text><text x="240" y="121">6</text>
+</g>
+<path d="M351 115V57m0 3c20-14 31 14 51-1v34c-20 15-31-13-51 1" stroke="#474f3c" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="#c3cda9"/>
+<path d="m370 74 5 5 10-11" stroke="#474f3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="44" y="54" font-family="Georgia,serif" font-size="27" fill="#263b2e">Ваш путь к результату</text>
+<text x="44" y="320" font-family="Arial,sans-serif" font-size="15" fill="#584467">Шаг за шагом — с поддержкой</text>
+</svg>
