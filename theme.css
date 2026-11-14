@@ -1467,3 +1467,7 @@ body dialog[open] { display: block; }
 .back-to-top { position: fixed; }
 .reviews-join-action .button::before { display: none; }
 @media(prefers-reduced-motion:reduce) { .button::after,.header-cta::after,.course-modal-trigger::after,.education-trigger::after,.social-icon::after,.personal-contact a::after,.back-to-top::after { animation: none; display: none; } }
+
+/* Keep the page navigation control above every section. */
+body > .back-to-top { position: fixed; inset: auto 20px max(20px, env(safe-area-inset-bottom)) auto; z-index: 1000; transform: none; visibility: visible; opacity: 1; }
+@media(max-width:760px) { body > .back-to-top { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); } }
