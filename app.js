@@ -261,3 +261,6 @@ document.querySelectorAll('[data-gift-option]').forEach(b=>b.addEventListener('c
 document.querySelectorAll('.article-gift-open').forEach(b=>b.addEventListener('click',syncGiftChoice));
 
 document.querySelector('.navigation-close').addEventListener('click',()=>{if(menu.getAttribute('aria-expanded')==='true')menu.click();});
+
+// Close the menu before measuring the destination, avoiding anchor drift.
+navigation.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{const target=document.querySelector(link.getAttribute('href'));if(!target)return;event.preventDefault();navigation.classList.remove('open','floating-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Открыть меню');requestAnimationFrame(()=>{history.pushState(null,'',link.getAttribute('href'));target.scrollIntoView({behavior:'instant',block:'start'});});}));
