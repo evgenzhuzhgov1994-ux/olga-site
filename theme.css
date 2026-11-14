@@ -1445,3 +1445,6 @@ body dialog[open] { display: block; }
 .reviews-join-action { display: flex; justify-content: center; margin-top: 34px; }
 .reviews-join-action .button { background: #474f3c; border-color: #474f3c; color: #fff8ef; text-align: left; }
 @media(max-width:760px) { .reviews-join-action .button { width: 100%; gap: 16px; font-size: 14px; } }
+
+.hero-offer-note { max-width: 530px; margin: 16px 0 0; color: #f7eee4; font: 400 13px/1.6 var(--sans); }
+@media(max-width:760px) { .hero .hero-offer-note { grid-row: 6; margin: 16px 0 0; font-size: 12px; } }
