@@ -1441,3 +1441,7 @@ body dialog[open] { display: block; }
 @media(max-width:760px) { .video-review-card { flex-basis: 88%; } .video-reviews-track { gap: 15px; } .video-reviews-bottom { font-size: 11px; gap: 10px; } .video-reviews-bottom > span:first-child { white-space: nowrap; } .video-review-panel { padding-inline: 16px; } }
 
 .results-reviews-link { margin-top: 22px; background: #78618e; border-color: #78618e; color: #fff8ef; }
+
+.reviews-join-action { display: flex; justify-content: center; margin-top: 34px; }
+.reviews-join-action .button { background: #474f3c; border-color: #474f3c; color: #fff8ef; text-align: left; }
+@media(max-width:760px) { .reviews-join-action .button { width: 100%; gap: 16px; font-size: 14px; } }
