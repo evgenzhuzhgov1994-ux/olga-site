@@ -39,19 +39,21 @@ const tariffSections=[
  ['Завтраки',true,true,true],
  ['Салаты',true,true,true],
  ['Сборник жиросжигающих напитков','Мини-сборник','Большой сборник','Большой сборник'],
- ['Сборник полезных блинов',false,false,true],
+ ['Сборник полезных блинов',false,true,true],
  ['ПП-выпечка и десерты',false,false,true],
  ['ТОП-полезных перекусов',false,false,true],
  ['Продуктовая корзина',true,true,true],
  ['Подборки продуктов',true,true,true],
- ['База насмотренности тарелок',false,true,true],
+ ['База насмотренности тарелок',true,true,true],
  ['Шпаргалка по жирам',true,true,true],
  ['Шпаргалка по 80+ десертам из магазинов',false,true,true]
  ]}];
 function tariffCell(value){return value===true?'<span class="tariff-check" role="img" aria-label="Входит">✓</span>':value===false?'<span class="tariff-minus" aria-label="Не входит">—</span>':value;}
 function tariffNames(){return prices.map(p=>`<span class="tariff-heading ${p.css}">${p.name}</span>`);}
 const names=tariffNames();
-document.querySelector('#price-grid').innerHTML=`<div class="tariff-table-scroll" tabindex="0" role="region" aria-label="Сравнение трёх тарифов"><table class="tariff-table"><caption class="visually-hidden">Сравнение форматов взаимодействия с Ольгой Жужговой</caption><thead><tr><th scope="col">Что входит</th>${prices.map((p,i)=>`<th scope="col" id="price-${p.id}"><span class="tariff-work-type">${i===0?'Групповая работа':'Личная работа'}</span>${names[i]}</th>`).join('')}</tr></thead><tbody>${tariffSections.map(section=>`<tr class="tariff-section-row"><th colspan="4">${section.title}</th></tr>${section.rows.map(row=>`<tr><th scope="row">${row[0]}</th>${row.slice(1).map(value=>`<td>${tariffCell(value)}</td>`).join('')}</tr>`).join('')}`).join('')}</tbody><tfoot><tr class="comparison-price-row"><th scope="row">Цена до 15 декабря</th>${prices.map(p=>`<td><strong class="comparison-price">${p.price}</strong><button type="button" class="button comparison-choose" data-comparison-format="${p.id}">Выбрать</button></td>`).join('')}</tr></tfoot></table></div><p class="tariff-analysis-note">Стоимость анализов не входит в сопровождение.</p>`;
+function comparisonPayment(p){const plan={group:['3-6','2705'],base:['3-10','4500'],optimal:['3-12','5725']}[p.id];return '<div class="comparison-installment"><strong>Рассрочка</strong> на '+plan[0]+' месяцев:</div><strong class="comparison-monthly">'+plan[1]+' ₽/мес</strong><div class="comparison-total"><span>'+p.price+'</span> <s>'+p.old+'</s></div>';}
+
+document.querySelector('#price-grid').innerHTML=`<div class="tariff-table-scroll" tabindex="0" role="region" aria-label="Сравнение трёх тарифов"><table class="tariff-table"><caption class="visually-hidden">Сравнение форматов взаимодействия с Ольгой Жужговой</caption><thead><tr><th scope="col">Что входит</th>${prices.map((p,i)=>`<th scope="col" id="price-${p.id}"><span class="tariff-work-type">${i===0?'Групповая работа':'Личная работа'}</span>${names[i]}</th>`).join('')}</tr></thead><tbody>${tariffSections.map(section=>`<tr class="tariff-section-row"><th colspan="4">${section.title}</th></tr>${section.rows.map(row=>`<tr><th scope="row">${row[0]}</th>${row.slice(1).map(value=>`<td>${tariffCell(value)}</td>`).join('')}</tr>`).join('')}`).join('')}</tbody><tfoot><tr class="comparison-price-row"><th scope="row">Стоимость программы до 15 декабря</th>${prices.map(p=>`<td>${comparisonPayment(p)}<button type="button" class="button comparison-choose" data-comparison-format="${p.id}">Выбрать</button></td>`).join('')}</tr></tfoot></table></div><p class="tariff-analysis-note">Стоимость анализов не входит в сопровождение.</p>`;
 const outcomeCategories=[
 {title:'Тело и здоровье',description:'Лёгкость, комфорт и хорошее самочувствие',image:'body-health.png',symbol:'♡',items:[
 ['01','Стабильное снижение веса','Без жёстких диет и подсчёта калорий','↘'],
@@ -63,13 +65,13 @@ const outcomeCategories=[
 ['05','Вкусный и сбалансирован&shy;ный рацион','Любимые продукты в здоровом рационе','🥗'],
 ['06','Без тяги к сладкому и мучному','Свобода от постоянных срывов','🍰'],
 ['07','Здоровые пищевые привычки','Осознанное и комфортное питание на долгий срок','🍽'],
-['08','Питание вне дома','Научитесь сбалансированно питаться в кафе, на встречах с друзьями, в праздники, в отпуске и в поездках','🍽']
+['08','Питание вне дома','Научитесь сбалансированно питаться в кафе, на встречах с друзьями, в праздники, в отпуске и в поездках','☕']
 ]},
 {title:'Внутреннее состояние',description:'Больше энергии, спокойствия и уверенности в себе',image:'course-psychology.svg',symbol:'❧',items:[
 ['09','Меньше тревоги и стресса','Эмоциональный баланс и спокойствие','❧'],
 ['10','Больше энергии и сил','Активность, продуктивность и хорошее настроение','ϟ'],
 ['11','Уверенность в себе','Принятие своего тела и гармония с собой','◇'],
-['12','Сможете носить любимые вещи и кайфовать от себя в зеркале.','','♡']
+['12','Сможете носить любимые вещи и кайфовать от себя в зеркале','','♡']
 ]}
 ];
 document.querySelector('#outcomes').innerHTML=outcomeCategories.map((category,index)=>`<article class="outcome-category category-${index}"><div class="outcome-category-header"><img src="${category.image}" alt="" loading="lazy"><div class="outcome-category-intro"><span aria-hidden="true">${category.symbol}</span><h3>${category.title}</h3><p>${category.description}</p></div></div><div class="outcome-category-items">${category.items.map(([number,title,description,icon])=>`<div class="change-item"><span class="change-icon" aria-hidden="true">${icon}</span><span class="change-number">${number}</span><div><h4>${title}</h4><p>${description}</p></div></div>`).join('')}</div></article>`).join('');
@@ -265,5 +267,5 @@ document.querySelector('.navigation-close').addEventListener('click',()=>{if(men
 // Close the menu before measuring the destination, avoiding anchor drift.
 navigation.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{const target=document.querySelector(link.getAttribute('href'));if(!target)return;event.preventDefault();navigation.classList.remove('open','floating-open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Открыть меню');requestAnimationFrame(()=>{history.pushState(null,'',link.getAttribute('href'));target.scrollIntoView({behavior:'instant',block:'start'});});}));
 
-mobileComparison.insertAdjacentHTML('beforeend','<section class="mobile-tariff-section comparison-price-section"><div class="mobile-tariff-header mobile-tariff-section-title"><h3>Цены до 15 декабря</h3></div><div class="mobile-tariff-body"><div class="mobile-tariff-row"><div class="mobile-tariff-label">Стоимость</div>'+prices.map(p=>'<div class="mobile-tariff-value"><strong class="comparison-price">'+p.price+'</strong><button type="button" class="button comparison-choose" data-comparison-format="'+p.id+'" aria-label="Выбрать тариф '+p.name+'">Выбрать</button></div>').join('')+'</div></div></section>');
+mobileComparison.insertAdjacentHTML('beforeend','<section class="mobile-tariff-section comparison-price-section"><div class="mobile-tariff-header mobile-tariff-section-title"><h3>Стоимость программы до 15 декабря</h3></div><div class="mobile-tariff-body"><div class="mobile-tariff-row"><div class="mobile-tariff-label">Стоимость</div>'+prices.map(p=>'<div class="mobile-tariff-value">'+comparisonPayment(p)+'<button type="button" class="button comparison-choose" data-comparison-format="'+p.id+'" aria-label="Выбрать тариф '+p.name+'">Выбрать</button></div>').join('')+'</div></div></section>');
 document.querySelectorAll('[data-comparison-format]').forEach(button=>button.addEventListener('click',()=>{const format=document.querySelector('#format');if(format){const option=[...format.options].find(o=>o.value===button.dataset.comparisonFormat);if(option)format.value=option.value;}joinDialog.showModal();}));

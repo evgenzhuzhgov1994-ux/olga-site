@@ -1529,3 +1529,10 @@ body > .back-to-top { position: fixed; inset: auto 20px max(20px, env(safe-area-
 .comparison-price {display:block;font:700 18px/1.4 var(--sans);white-space:nowrap;margin-bottom:12px;}
 .comparison-choose {position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:10px 12px;font:600 13px/1.2 var(--sans);border:0;}
 @media(max-width:760px) {.comparison-price-section .mobile-tariff-row {grid-template-columns:minmax(0,1.45fr) repeat(3,minmax(0,1fr));gap:4px;} .comparison-price-section .comparison-price {font-size:10px;letter-spacing:-.03em;margin-bottom:10px;} .comparison-price-section .comparison-choose {font-size:9px;padding:9px 2px;min-height:36px;} .offer-price-deadline {font-size:11px;} }
+
+.comparison-installment {font:400 13px/1.5 var(--sans);margin-bottom:8px;}
+.comparison-monthly {display:block;white-space:nowrap;font:700 22px/1.4 var(--sans);margin-bottom:8px;}
+.comparison-total {display:flex;justify-content:center;flex-wrap:wrap;gap:5px 9px;font:600 16px/1.4 var(--sans);margin-bottom:16px;}
+.comparison-total span,.comparison-total s {white-space:nowrap;}
+.comparison-total s {font-weight:400;opacity:.65;}
+@media(max-width:760px) {.comparison-price-section .mobile-tariff-row {grid-template-columns:minmax(0,1.15fr) repeat(3,minmax(0,1fr));align-items:center;} .comparison-installment {font-size:9px;line-height:1.5;} .comparison-monthly {font-size:10px;letter-spacing:-.04em;} .comparison-total {font-size:9px;gap:3px;margin-bottom:10px;} .comparison-price-section .mobile-tariff-value {min-width:0;} }
