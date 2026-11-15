@@ -1523,3 +1523,9 @@ body > .back-to-top { position: fixed; inset: auto 20px max(20px, env(safe-area-
 .personal-contact a[href*="max.ru"] { background:#6753cf; color:#fff; border-color:#6753cf; }
 
 @media(max-width:760px) { .article-gifts-list article h3 { font-size:14px; line-height:1.5; } }
+
+.offer-price-deadline {display:inline-block;font:500 12px/1.4 var(--sans);white-space:nowrap;margin-left:5px;}
+.comparison-price-row th,.comparison-price-row td {padding-block:22px;background:#f7eee4;}
+.comparison-price {display:block;font:700 18px/1.4 var(--sans);white-space:nowrap;margin-bottom:12px;}
+.comparison-choose {position:relative;display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:10px 12px;font:600 13px/1.2 var(--sans);border:0;}
+@media(max-width:760px) {.comparison-price-section .mobile-tariff-row {grid-template-columns:minmax(0,1.45fr) repeat(3,minmax(0,1fr));gap:4px;} .comparison-price-section .comparison-price {font-size:10px;letter-spacing:-.03em;margin-bottom:10px;} .comparison-price-section .comparison-choose {font-size:9px;padding:9px 2px;min-height:36px;} .offer-price-deadline {font-size:11px;} }
